@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="467340086670-v3111utlv09ssep44tp0gpmg12agge3n.apps.googleusercontent.com">
+    <title>Google Auth</title>
+</head>
+
+<body>
+    <button onclick="signIn()"> SignIn with Google</button>
+    
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        let signIn = function () {
+            console.log("Windows Loaded")
+            google.accounts.id.initialize({
+                client_id: '467340086670-v3111utlv09ssep44tp0gpmg12agge3n.apps.googleusercontent.com',
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.prompt();
+        };
+        function handleCredentialResponse(res) {
+            console.log("Response : ");
+            console.log(res);
+        }
+    </script>
+</body>
+
+</html>
